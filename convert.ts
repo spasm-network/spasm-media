@@ -81,6 +81,7 @@ const assignNewFileName = (
     case '.mov':
     case '.mkv':
     case '.flv':
+    case '.webm':
       prefix = 'spasmvi01';
       break;
     case '.jpg':
@@ -99,6 +100,7 @@ const assignNewFileName = (
     case '.wav':
     case '.flac':
     case '.aac':
+    case '.opus':
       prefix = 'spasmau01';
       break;
     case '.git':
