@@ -4,7 +4,27 @@
   "description": "Serving media files for Spasm",
   "main": "dist/server.js",
   "scripts": {
-    "test": "echo 'no tests'"
+    "test": "echo 'no tests'",
+    "start": "node dist/server.js",
+    "dev": "npx ts-node src/server.ts",
+    "build": "rm -rf dist && npx tsc",
+    "prod": "npm run build && npm run start-prod",
+    "start-prod": "pm2 start ecosystem-prod.config.js",
+    "stage": "npm run build && npm run start-stage",
+    "start-stage": "pm2 start ecosystem-stage.config.js",
+    "convert": "ts-node convert.ts"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@types/cors": "^2.8.19",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.3.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  }
 }
