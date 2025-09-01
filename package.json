@@ -1,0 +1,10 @@
+{
+  "name": "spasm-media",
+  "version": "1.0.0",
+  "description": "Serving media files for Spasm",
+  "main": "dist/server.js",
+  "scripts": {
+    "test": "echo 'no tests'"
+  },
+  "license": "MIT"
+}
