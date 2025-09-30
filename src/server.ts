@@ -7,28 +7,33 @@ const app = express()
 app.use(cors())
 
 // Define a type for the file extensions
-type FileExtension = '.mp4' | '.avi' | '.mov' | '.mkv' | '.flv' | '.webm' | '.jpg' | '.jpeg' | '.png' | '.gif' | '.bmp' | '.webp' | '.ico' | '.mp3' | '.wav' | '.flac' | '.aac' | '.opus' | '.git'
+type FileExtension = '.mp4' | '.ogg' | '.avi' | '.mov' | '.mkv' | '.flv' | '.webm' | '.jpg' | '.jpeg' | '.png' | '.gif' | '.bmp' | '.webp' | '.ico' | '.mp3' | '.wav' | '.flac' | '.aac' | '.opus' | '.git'
 
 // Map of file extensions to MIME types
 const mimeTypes: Record<FileExtension, string> = {
+  // Video
   '.mp4': 'video/mp4',
+  '.ogg': 'video/ogg',
   '.avi': 'video/x-msvideo',
   '.mov': 'video/quicktime',
   '.mkv': 'video/x-matroska',
   '.flv': 'video/x-flv',
   '.webm': 'video/webm',
+  // Image
   '.jpg': 'image/jpeg',
   '.jpeg': 'image/jpeg',
   '.png': 'image/png',
-  '.gif': 'image/gif',
   '.bmp': 'image/bmp',
   '.webp': 'image/webp',
   '.ico': 'image/x-icon',
+  '.gif': 'image/gif',
+  // Audio
   '.mp3': 'audio/mpeg',
   '.wav': 'audio/wav',
   '.flac': 'audio/flac',
   '.aac': 'audio/aac',
   '.opus': 'audio/opus',
+  // Other
   '.git': 'application/git' // Assuming this is a custom type for .git files
 }
 
