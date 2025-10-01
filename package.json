@@ -12,7 +12,8 @@
     "start-prod": "pm2 start ecosystem-prod.config.js",
     "stage": "npm run build && npm run start-stage",
     "start-stage": "pm2 start ecosystem-stage.config.js",
-    "convert": "ts-node convert.ts"
+    "convert": "ts-node convert.ts",
+    "git-update": "git fetch && git reset --hard origin/master && git pull"
   },
   "license": "MIT",
   "dependencies": {
