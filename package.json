@@ -13,7 +13,8 @@
     "stage": "npm run build && npm run start-stage",
     "start-stage": "pm2 start ecosystem-stage.config.js",
     "convert": "ts-node convert.ts",
-    "git-update": "git fetch && git reset --hard origin/master && git pull"
+    "git-update": "git fetch && git reset --hard origin/master && git pull",
+    "delete-pm2-prod": "pm2 delete $(node -e 'const ecosystem = require(\"./ecosystem-prod.config.js\"); console.log(ecosystem.apps[0].name);' | tail -n 1)"
   },
   "license": "MIT",
   "dependencies": {
