@@ -13,7 +13,7 @@ type FileExtension = '.mp4' | '.ogg' | '.avi' | '.mov' | '.mkv' | '.flv' | '.web
 const mimeTypes: Record<FileExtension, string> = {
   // Video
   '.mp4': 'video/mp4',
-  '.ogg': 'video/ogg',
+  // '.ogg': 'video/ogg',
   '.avi': 'video/x-msvideo',
   '.mov': 'video/quicktime',
   '.mkv': 'video/x-matroska',
@@ -29,6 +29,7 @@ const mimeTypes: Record<FileExtension, string> = {
   '.gif': 'image/gif',
   // Audio
   '.mp3': 'audio/mpeg',
+  '.ogg': 'audio/ogg',
   '.wav': 'audio/wav',
   '.flac': 'audio/flac',
   '.aac': 'audio/aac',
@@ -48,7 +49,15 @@ app.use((req, res, next) => {
 })
 
 // Serve static files from the 'public' directory
-app.use(express.static(path.join(__dirname, '..', 'public')))
+// app.use(express.static(path.join(__dirname, '..', 'public')))
+
+// A better way to serve static files with range request support
+app.use(express.static(path.join(__dirname, '..', 'public'), {
+  // This enables range requests out of the box
+  setHeaders: (res, path, stat) => {
+    res.set('Accept-Ranges', 'bytes');
+  }
+}));
 
 // Start the server
 const PORT = process.env.BACKEND_PORT || 5015
