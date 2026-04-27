@@ -2,6 +2,8 @@
 
 ![spasm](https://github.com/degenrocket/spasm/blob/f00b5d86a7309a35867413293bbd95d9041077a5/static/pyramid-black.png?raw=true)
 
+Mirrors: [Forgejo](https://git.spasm.network/spasm-network/spasm-media) [Codeberg](https://codeberg.org/spasm-network/spasm-media) [Github](https://github.com/spasm-network/spasm-media)
+
 This repo is for serving media files for [Spasm](https://spasm.network).
 
 For **spasm.js** library see: 
